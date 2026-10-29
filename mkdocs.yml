@@ -1,0 +1,65 @@
+site_name: 畢業專題開發文檔與進度報告
+site_description: 專案研究、系統架構與每週進度匯報
+site_author: Ho-yu-chiao
+site_url: https://ho-yu-chiao.github.io/senior-project/
+repo_url: https://github.com/Ho-yu-chiao/senior-project
+repo_name: Ho-yu-chiao/senior-project
+
+theme:
+  name: material
+  language: zh-Hant
+  palette:
+    # 淺色模式
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: 切換至深色模式
+    # 深色模式
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: 切換至淺色模式
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - tables
+  - attr_list
+  - md_in_html
+
+nav:
+  - 首頁: index.md
+  - 專案規劃:
+      - 需求與目標: spec/requirements.md
+      - 系統架構: spec/architecture.md
+      - 時程規劃 (Roadmap): spec/roadmap.md
+  - 進度回報:
+      - 第 01 週進度: progress/week01.md
+  - 會議記錄:
+      - 會議記錄模板: meetings/template.md
+      - 第一次討論記錄: meetings/meeting-01.md

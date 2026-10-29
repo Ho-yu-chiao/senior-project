@@ -1,0 +1,38 @@
+name: Sync Google Doc
+
+on:
+  workflow_dispatch:
+  schedule:
+    # 每天早上 8:00 (UTC 0:00) 自動同步一次
+    - cron: '0 0 * * *'
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Run Google Doc Sync Script
+        run: |
+          python scripts/sync_gdoc.py
+
+      - name: Commit and Push if Changed
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --staged --quiet; then
+            echo "No changes detected from Google Doc."
+          else
+            git commit -m "docs: 自動同步 Google 文件最新內容"
+            git push origin main
+          fi

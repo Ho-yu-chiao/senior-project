@@ -1,57 +1,63 @@
-# 畢業專題開發文檔
+# SimClass - 國小數學微型教學 AI 學生模擬系統
 
-歡迎查閱本專題的公開開發文檔與進度報告網站！本站專為展示專案開發進程、規格設計與會議紀錄所建置，方便指導教授與審查委員隨時掌握最新成果。
+[![Documentation](https://img.shields.io/badge/Docs-Live%20Website-blue?style=for-the-badge&logo=materialformkdocs)](https://ho-yu-chiao.github.io/senior-project/)
+[![Deploy Status](https://github.com/Ho-yu-chiao/senior-project/actions/workflows/deploy-docs.yml/badge.svg)](https://github.com/Ho-yu-chiao/senior-project/actions/workflows/deploy-docs.yml)
+[![Google Doc Sync](https://img.shields.io/badge/Google%20Doc-Connected-34A853?style=for-the-badge&logo=googledocs)](https://docs.google.com/document/d/12Y3odbI0IV6zJBWi_nhHnvx-t64decyDAo4Zbse3PqA/edit?usp=sharing)
+
+歡迎查閱 **SimClass** 畢業專題的官方公開開發文檔與進度報告網站！本站專為展示專案開發進程、系統架構設計與會議紀錄所建置，方便指導教授與審查委員隨時掌握最新成果。
 
 ---
 
-## 📌 專案基本資訊
+## 📌 專題基本資訊
 
 | 項目 | 內容說明 |
 | :--- | :--- |
-| **專案名稱** | 智慧系統專題研究（可依實際題目修改） |
-| **指導教授** | 指導教授姓名 |
-| **開發成員** | 學生姓名（Ho-yu-chiao）與學號 |
+| **專案名稱** | **SimClass - 國小數學微型教學 AI 學生模擬系統** |
+| **教學科目與單元** | 國小數學（中年級）四則混合運算（含括號與先乘除後加減） |
+| **核心技術** | 大語言模型 (LLM)、多代理人系統 (Multi-Agent System)、狀態機轉移規則 |
+| **專題作者** | Ho-yu-chiao |
 | **專案 Repo** | [GitHub: senior-project](https://github.com/Ho-yu-chiao/senior-project) |
-| **文檔網站** | [https://ho-yu-chiao.github.io/senior-project/](https://ho-yu-chiao.github.io/senior-project/) |
-| **目前階段** | 需求分析與架構設計（第 1 階段） |
+| **公開文件網站** | [https://ho-yu-chiao.github.io/senior-project/](https://ho-yu-chiao.github.io/senior-project/) |
+| **來源文件** | [Google Docs 專題共享文件](https://docs.google.com/document/d/12Y3odbI0IV6zJBWi_nhHnvx-t64decyDAo4Zbse3PqA/edit?usp=sharing) |
 
 ---
 
-## 🚀 專案核心目標
+## 🎯 專案核心特色
 
-1. **模組化系統開發**：建構高擴充性、高穩定度的核心架構。
-2. **完整工程化流程**：落實 Git 版本控管、CI/CD 自動化發布與即時文件同步。
-3. **成果可驗證性**：建立完善的測試案例與進度量化追蹤指標。
+1. **5 類異質性 AI 學生 (Heterogeneous Agent Cards)**：包含高成就搶答型 (A)、中程度觀望型 (B)、先加後乘迷思型 (C)、焦慮逃避型 (D) 與分心玩橡皮擦型 (E)。
+2. **動態認知狀態機 (Knowledge & Classroom State Engine)**：追蹤掌握度 ($0 \sim 1$)、信心度與情緒，依教師引導語意進行狀態轉移。
+3. **Orchestrator 智慧調度**：模擬真實 10–15 分鐘微型課堂互動節奏，避免多人搶話或死寂。
 
 ---
 
 ## 🗺️ 文檔章節導覽
 
-本網站規劃了以下主要專區：
-
 ```mermaid
 graph LR
-    A[專題文檔入口] --> B[專案規劃]
-    A --> C[進度回報]
-    A --> D[會議記錄]
+    A["SimClass 專題文檔"] --> B["SimClass 核心設計"]
+    A --> C["專案工程規範"]
+    A --> D["每週進度回報"]
+    A --> E["會議記錄"]
 
-    B --> B1[需求規格]
-    B --> B2[系統架構]
-    B --> B3[時程甘特圖]
+    B --> B1["系統總覽"]
+    B --> B2["教案與 15 分鐘腳本"]
+    B --> B3["5 位 AI 學生規格"]
+    B --> B4["8 大課堂事件與狀態轉移"]
+    B --> B5["Orchestrator 調度機制"]
 
-    C --> C1[第 01 週進度]
-    C --> C2[每週例行更新...]
+    C --> C1["需求規格與目標"]
+    C --> C2["軟體架構圖"]
+    C --> C3["開發時程甘特圖"]
 
-    D --> D1[會議紀錄模板]
-    D --> D2[歷次指導紀錄]
+    D --> D1["第 01 週報告"]
+    E --> E1["歷次指導會議"]
 ```
 
-- **[專案規劃 - 需求與目標](spec/requirements.md)**：詳細定義專案研究動機、功能需求與非功能需求。
-- **[專案規劃 - 系統架構](spec/architecture.md)**：包含系統流程圖、技術選型與模組互動架構。
-- **[專案規劃 - 時程規劃](spec/roadmap.md)**：甘特圖與各階段里程碑追蹤。
-- **[進度回報](progress/week01.md)**：各週工作成果、遭遇難題與下週 Action Items。
-- **[會議記錄](meetings/template.md)**：與指導老師的面談重點、建議修正方向與代辦決議事項。
-
----
-
-> 💡 **提示**：本文件將於每次團隊推動程式碼更新時，由 GitHub Actions 自動發布至最新版本。
+### 專區快捷入口
+- 📘 **[SimClass 系統總覽](simclass/overview.md)**：專案起源、解決之師培痛點與系統總體藍圖。
+- 📝 **[微型教學教案與 15 分鐘腳本](simclass/pedagogy.md)**：三階段教學腳本（出題、對比、引導）。
+- 👥 **[5 位 AI 學生 Agent 卡片](simclass/agents.md)**：5 位學生的完整屬性、行為特徵與 JSON 狀態結構。
+- ⚙️ **[課堂事件與狀態轉移規則](simclass/events.md)**：8～12 個課堂挑戰事件與觸發規則。
+- 🎭 **[Orchestrator 協調調度機制](simclass/orchestrator.md)**：多學生發言協調演算法與運作範例。
+- 📈 **[每週開發進度匯報](progress/week01.md)**：每週向教授報告之里程碑與待辦清單。
+- 🗣️ **[歷次指導會議紀錄](meetings/meeting-01.md)**：教授建議與行動清單追蹤。

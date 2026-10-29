@@ -1,5 +1,5 @@
-site_name: 畢業專題開發文檔與進度報告
-site_description: 專案研究、系統架構與每週進度匯報
+site_name: SimClass - 國小數學微型教學 AI 學生模擬系統
+site_description: 師資培育微型教學之多代理人 AI 學生模擬系統開發文檔與每週進度報告
 site_author: Ho-yu-chiao
 site_url: https://ho-yu-chiao.github.io/senior-project/
 repo_url: https://github.com/Ho-yu-chiao/senior-project
@@ -46,15 +46,27 @@ markdown_extensions:
       pygments_lang_class: true
   - pymdownx.inlinehilite
   - pymdownx.snippets
+  - pymdownx.arithmatex:
+      generic: true
   - pymdownx.tasklist:
       custom_checkbox: true
   - tables
   - attr_list
   - md_in_html
 
+extra_javascript:
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
 nav:
   - 首頁: index.md
-  - 專案規劃:
+  - SimClass 核心設計:
+      - 系統總覽: simclass/overview.md
+      - 教學教案與 15 分鐘腳本: simclass/pedagogy.md
+      - 5 位 AI 學生規格 (Agent Cards): simclass/agents.md
+      - 課堂事件與轉移規則: simclass/events.md
+      - Orchestrator 調度機制: simclass/orchestrator.md
+  - 專案工程規劃:
       - 需求與目標: spec/requirements.md
       - 系統架構: spec/architecture.md
       - 時程規劃 (Roadmap): spec/roadmap.md
